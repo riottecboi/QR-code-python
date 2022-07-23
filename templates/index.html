@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Title</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        display:grid;
+        grid-template-rows: auto 1fr auto;
+    }
+    .parent {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+
+    .navigation { grid-area: 1 / 2 / 2 / 5; margin-top: 20px;}
+    .footer {
+        grid-area: 5 / 2 / 6 / 5;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        background: #2d3e50;
+        padding-top: 15px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        height: 75px;
+        top: 12vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #7fd1de;
+    }
+    .content { grid-area: 2 / 2 / 5 / 5; }
+</style>
+<body>
+<div class="parent">
+    <div class="navigation">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#" style="color: #2d3e50">Riottecboi</a>
+                </div>
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">Page 1</a></li>
+                  <li><a href="#">Page 2</a></li>
+                  <li><a href="#">Page 3</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+        <footer class="footer">
+          <p>Copyright © 2022 <b>Riottecboi</b><br>
+          <a href="mailto:riottecboi@gmail.com">riottecboi@gmail.com</a></p>
+        </footer>
+
+    <div class="content">
+
+    </div>
+</div>
+</body>
+</html>
