@@ -50,12 +50,15 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
-                  <a class="navbar-brand" href="#" style="color: #2d3e50">Riottecboi</a>
+                    <a class="navbar-brand" href="#" style="position:relative;bottom: 10px"><img src="{{ url_for('static', filename='images/riottecboi.png') }}" width="50" height="50"></a>
+                    <a class="navbar-brand" href="#" style="color: #2d3e50;position:relative;right: 15px">RIOTTECBOI</a>
                 </div>
-                <ul class="nav navbar-nav">
-                  <li class="active"><a href="#">Page 1</a></li>
-                  <li><a href="#">Page 2</a></li>
-                  <li><a href="#">Page 3</a></li>
+                <ul class="nav navbar-nav" style="float: right">
+                    <li class="active"><a href="#">Normal QR</a></li>
+                    <li><a href="#">Wifi QR</a></li>
+                    <li><a href="#">Geographic QR</a></li>
+                    <li><a href="#">Artistic QR</a></li>
+                    <li><a href="#">Card QR</a></li>
                 </ul>
             </div>
         </nav>
