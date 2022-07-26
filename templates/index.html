@@ -4,99 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/design.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Normal QR</title>
 </head>
-<style>
-    body{
-        margin: 0;
-        display:grid;
-        grid-template-rows: auto 1fr auto;
-    }
-    .parent {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
-
-    .navigation { grid-area: 1 / 2 / 2 / 5; margin-top: 20px;}
-    .footer {
-        grid-area: 5 / 2 / 6 / 5;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-        background: #2d3e50;
-        padding-top: 15px;
-        padding-right: 15px;
-        padding-left: 15px;
-        margin-right: auto;
-        margin-left: auto;
-        height: 75px;
-        top: 12vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #7fd1de;
-    }
-    .content {
-        grid-area: 2 / 2 / 5 / 5;
-        display: flex;
-        justify-content: center;
-    }
-
-    .child {
-        width: 60vh;
-        height: 60vh;
-    }
-
-    .center {
-        position: relative;
-        padding-right: 15vh;
-        padding-left: 15vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .box_input {
-        margin-top: 20px;
-        height: 40px;
-        width: 250px;
-        border: 1px solid #232323;
-        box-sizing: border-box;
-        border-radius: 5px;
-        background-color: white;
-        appearance: none;
-        background-repeat: no-repeat;
-        background-size: 38px 38px;
-        position: relative;
-        text-indent: 10px;
-        font-size: 14px;
-        font-weight: 400;
-    }
-
-    .child button{
-        margin-top: 20px;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 17px;
-
-        width: 150px;
-        height: 40px;
-        border: 1px solid #2d3e50;
-        border-radius: 5px;
-        background-color: #2d3e50;
-        position: relative;
-        color: #ffffff;
-    }
-
-
-</style>
 <body>
 <div class="parent">
     <div class="navigation">
