@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3;url={{ redirect }}" />
+    <title>{{ message }}</title>
+</head>
+<style>
+    .fullscreenDiv {
+    background-color: #e8e8e8;
+    width: 100%;
+    height: auto;
+    bottom: 0px;
+    top: 0px;
+    left: 0;
+    position: absolute;
+    }
+    .center {
+        position: absolute;
+        min-width: 310px;
+        height: 100%;
+        top: 10%;
+        left: 35%;
+    }
+
+
+</style>
+<body>
+<div class='fullscreenDiv'>
+    <div class="center">
+        <img src="{{ url_for('static', filename='images/error.png') }}" alt="loading" width="600px"/><br>
+        <br>
+    </div>
+
+</div>
+</body>
+</html>
