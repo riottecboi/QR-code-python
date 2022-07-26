@@ -17,19 +17,15 @@ def geographic_generator(lat, long):
 
 def artistic_generator(input, output, path):
     qrcode = segno.make(input, micro=False, error='h')
-    qrcode_artistic.write_artistic(qrcode, background=path, target=output, scale=3)
+    qrcode_artistic.write_artistic(qrcode, background=path, target=output, scale=7, dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen')
     return path
 
 
-def infomation_card_generator(input_json, type):
-    if type == 'vcard':
-        qrcode = helpers.make_vcard(name=input_json['name'], displayname=input_json['displayname'], email=input_json['email'],
-                                    phone=input_json['phone'], birthday=input_json['birthday'], url=input_json['url'], memo=input_json['memo'])
+def infomation_card_generator(input_json):
+    vcard_qrcode = helpers.make_vcard(name=input_json['name'], displayname=input_json['displayname'], email=input_json['email'],
+                                phone=input_json['phone'], url=input_json['url'], memo=input_json['memo'])
 
-    elif type == 'mecard':
-        qrcode = helpers.make_mecard(name=input_json['name'], nickname=input_json['displayname'], email=input_json['email'],
-                                    phone=input_json['phone'], birthday=input_json['birthday'], url=input_json['url'],
+    mecard_qrcode = helpers.make_mecard(name=input_json['name'], nickname=input_json['displayname'], email=input_json['email'],
+                                phone=input_json['phone'], url=input_json['url'],
                                     memo=input_json['memo'])
-    else:
-        qrcode = None
-    return qrcode
+    return vcard_qrcode, mecard_qrcode

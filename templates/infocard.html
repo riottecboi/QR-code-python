@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Wifi QR</title>
+    <title>Information Card QR</title>
 </head>
 <style>
     body{
@@ -108,10 +108,10 @@
                 </div>
                 <ul class="nav navbar-nav" style="float: right">
                     <li><a href="{{ url_for('qr', type='normal') }}">Normal QR</a></li>
-                    <li class="active"><a href="{{ url_for('qr', type='wifi') }}">Wifi QR</a></li>
+                    <li><a href="{{ url_for('qr', type='wifi') }}">Wifi QR</a></li>
                     <li><a href="{{ url_for('qr', type='geographic') }}">Geographic QR</a></li>
                     <li><a href="{{ url_for('qr', type='artistic') }}">Artistic QR</a></li>
-                    <li><a href="{{ url_for('qr', type='card') }}">Card QR</a></li>
+                    <li class="active"><a href="{{ url_for('qr', type='card') }}">Card QR</a></li>
                 </ul>
             </div>
         </nav>
@@ -123,19 +123,34 @@
 
     <div class="content">
         <div class="child">
-            <h1 class="center">Wifi QR</h1>
-            <form action="{{ url_for('qr', type='wifi') }}" method="post">
+            <h1 class="center">Private Card QR</h1>
+
+            <form action="{{ url_for('qr', type='card') }}" method="post">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
-                <span class="center"><input class="box_input" type="text" name="ssid" placeholder="Enter your wifi name" required></span>
-                <span class="center"><input class="box_input" type="text" name="password" placeholder="Enter your wifi password" required></span>
+                {% if not vcard_qrcode and not mecard_qrcode %}
+                <span class="center"><input class="box_input" type="text" name="name" placeholder="Enter your name" style="width: 300px" required></span>
+                <span class="center"><input class="box_input" type="text" name="nickname" placeholder="Enter your nickname" style="width: 300px" required></span>
+                <span class="center"><input class="box_input" type="email" name="email" placeholder="Enter your email" style="width: 300px" required></span>
+                <span class="center"><input class="box_input" type="number" name="phone" placeholder="Enter your phone" style="width: 300px" required></span>
+                <span class="center"><input class="box_input" type="url" name="url" placeholder="Enter your websites" style="width: 300px" ></span>
+                <span class="center"><input class="box_input" type="text" name="memo" placeholder="Enter some notes" style="width: 300px" ></span>
                 <span class="center"><button type="submit">Submit</button></span>
-                {% if qrcode %}
+                {% endif %}
+                {% if vcard_qrcode and mecard_qrcode %}
                 <div class="center">
-                    <a href="{{ qrcode.png_data_uri(dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen', scale=5) }}" download="png-version.png" title="download png version">
-                        <img src="{{ qrcode.png_data_uri(dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen', scale=7) }}">
+                    <a href="{{ vcard_qrcode.png_data_uri(dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen', scale=5) }}" download="vcard-qrcode-png-version.png" title="vcard png version">
+                        <img src="{{ vcard_qrcode.png_data_uri(dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen', scale=5) }}">
                     </a>
-                    <a href="{{ qrcode.png_data_uri(dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen', scale=5) }}" download="svg-version.png" title="download svg version">
-                        <img src="{{ qrcode.svg_data_uri(dark='darkblue', scale=7) }}">
+                    <a href="{{ vcard_qrcode.png_data_uri(dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen', scale=5) }}" download="vcard-qrcode-svg-version.png" title="vcard svg version">
+                        <img src="{{ vcard_qrcode.svg_data_uri(dark='darkblue', scale=5) }}">
+                    </a>
+                </div>
+                <div class="center">
+                    <a href="{{ mecard_qrcode.png_data_uri(dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen', scale=5) }}" download="mecard-qrcode-png-version.png" title="mecard png version">
+                        <img src="{{ vcard_qrcode.png_data_uri(dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen', scale=5) }}">
+                    </a>
+                    <a href="{{ mecard_qrcode.png_data_uri(dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen', scale=5) }}" download="mecard-qrcode-svg-version.png" title="mecard svg version">
+                        <img src="{{ vcard_qrcode.svg_data_uri(dark='darkblue', scale=5) }}">
                     </a>
                 </div>
                 {% endif %}

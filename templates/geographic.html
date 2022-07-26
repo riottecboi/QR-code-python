@@ -110,8 +110,8 @@
                     <li><a href="{{ url_for('qr', type='normal') }}">Normal QR</a></li>
                     <li><a href="{{ url_for('qr', type='wifi') }}">Wifi QR</a></li>
                     <li class="active"><a href="{{ url_for('qr', type='geographic') }}">Geographic QR</a></li>
-                    <li><a href="#">Artistic QR</a></li>
-                    <li><a href="#">Card QR</a></li>
+                    <li><a href="{{ url_for('qr', type='artistic') }}">Artistic QR</a></li>
+                    <li><a href="{{ url_for('qr', type='card') }}">Card QR</a></li>
                 </ul>
             </div>
         </nav>
