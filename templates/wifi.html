@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Title</title>
+    <title>Wifi QR</title>
 </head>
 <style>
     body{
@@ -109,7 +109,7 @@
                 <ul class="nav navbar-nav" style="float: right">
                     <li><a href="{{ url_for('qr', type='normal') }}">Normal QR</a></li>
                     <li class="active"><a href="{{ url_for('qr', type='wifi') }}">Wifi QR</a></li>
-                    <li><a href="#">Geographic QR</a></li>
+                    <li><a href="{{ url_for('qr', type='geographic') }}">Geographic QR</a></li>
                     <li><a href="#">Artistic QR</a></li>
                     <li><a href="#">Card QR</a></li>
                 </ul>
@@ -137,7 +137,7 @@
                     <a href="{{ qrcode.png_data_uri(dark='darkblue', data_dark='steelblue', alignment_dark='darkgreen', scale=5) }}" download="svg-version.png" title="download svg version">
                         <img src="{{ qrcode.svg_data_uri(dark='darkblue', scale=7) }}">
                     </a>
-                </div
+                </div>
                 {% endif %}
             </form>
         </div>
